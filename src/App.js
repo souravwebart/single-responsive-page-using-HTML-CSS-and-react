@@ -34,7 +34,7 @@ function App() {
                 <a href="/">Lorem</a>
             </div>
             <div className="cart-Icon">
-            <span class="fab fa-opencart carticon"></span>
+            <span className="fab fa-opencart carticon"></span>
             </div>
         </header>
         <aside className="sidebar">
