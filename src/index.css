@@ -1,13 +1,346 @@
-body {
+html{
+  font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
+  box-sizing: border-box;
+}
+body{
+  font: 1.6rem Helvetica;
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(250,250,250);
+}
+.grid-container{
+  display: grid;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+  
+}
+.header{
+  grid-area: header;
+  background-color: rgb(250,250,250);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  position: fixed;
+}
+.brand a{
+  color: rgb(0, 0, 0);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header-links a{
+  color: white;
+  text-decoration: none;
+  justify-content: space-between;
+  padding-left: 8px;
+}
+.header-links a:hover{
+  color: rgb(255,78,78);
+}
+.cart-Icon{
+  padding-top: 10px;
+  font-size: 4.4rem;
+  color: rgb(255,78,78);
+}
+.main{
+  grid-area: main;
+  background-color: rgb(250,250,250);
+  
+}
+.footer{
+  grid-area: footer;
+  background-color: rgb(250,250,250);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  color: rgb(255,78,78);
+}
+/* home Screen */
+.card{
+  background-color: rgb(255,255,255);
+  margin: 20px;
+  padding: 45px;
+  border-radius: 25px;
+  box-shadow: 0 18px 31px 0 rgb(194 193 191 / 99%);
+  text-align: center;
+}
+.cardTitle h1{
+  font-size: 2.2rem;
+  text-align: center;
+  padding: 10px 5px;
+}
+.cardimage{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  justify-content: center;
+}
+/* sidebar */
+
+@media only screen and (min-width: 992px){
+.sidebar{
+ display: none;
+}
+.menu button{
+  display: none;
+}
+.cart-Icon{
+  display: none;
+}
+.desktopsidebar{
+  position: fixed;
+  width: 30rem;
+  background-color: rgb(250,250,250);
+  height: 100%;
+}
+.contenarea{
+  margin-left: 30rem;
+  background-color: rgb(250,250,250);
+}
+.brand a{
+  display: none;
+}
+.Headingtxt{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.strike{
+  color: rgb(255,78,78);
+}
+.headingh1{
+  font-size: 9rem;
+  font-weight: 500;
+  font-family: 'Abril Fatface', cursive;
+}
+.headingtxt-right{
+  justify-content: center;
+
+}
+.headingtxt-right p{
+  font-size: 2rem;
+  color: rgb(145, 143, 143);
+  padding: 80px 10px 10px 10px;
+  background-color: rgb(250,250,250);
+}
+.titlehr{
+  border-top: 3px solid rgb(255,78,78);
+  width: 10rem;
+  float: left;
+  margin-left: 10px;
+}
+.Heading{
+  width: 75rem;
+}
+.headingtxt-right{
+  width: 50rem;
+  margin: 15px;
+}
+.sidebarlogo{
+  margin: 30px 15px;
+  text-align: center;
+  font-size: 4.5rem;
+  font-family: 'Abril Fatface', cursive;
+}
+.desktopsidebar ul{
+  margin-left: -45px;
+  margin-bottom: 25px;
+
+}
+.desktopsidebar ul li{
+  list-style: none;
+  text-decoration: none;
+  margin: 10px 5px;
+  text-align: center;
+  padding: 15px 5px;
+  cursor: pointer;
+}
+.desktopsidebar ul li a{
+  margin: 10px 5px;
+  text-align: center;
+  font-size: 2rem;
+  color: #c0c0c0;
+}
+.Buttoncart{
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(255,78,78);
+  padding: 15px 40px;
+  border-radius: 50px;
+  color: white;
+  /* margin: 0px 111px; */
+  margin-left: 95px;
+}
+.Buttoncart:hover{
+  color: rgb(243, 242, 241);
+}
+.productcard{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 15px;
+}
+.mobilebuttomtext{
+  display: none;
+}
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media only screen and (max-width: 991px){
+  .sidebar{
+    position: fixed;
+    transition: all .5sec;
+    transform: translateX(-30rem);
+    width: 30rem;
+    background-color: rgb(231, 222, 222);
+    height: 100%;
+  }
+  .sidebar.open{
+    transform: translateX(0);
+    background-color: rgb(255 255 255);
+
+  }
+  .sidebar-close-button{
+  border-radius: 50%;
+  border: 0.1rem black solid;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  padding-top: 0;
+  cursor: pointer;
+  position: absolute;
+  right: .5rem;
+  top: 1.5rem;
+  padding: 0.5rem;
+  
+  }
+  .menu button{
+    font-size: 3rem;
+    padding: .5rem;
+    background: none;
+    border: none;
+    color: rgb(255,78,78);
+    cursor: pointer;
+  }
+  .cart-Icon{
+    padding-top: 10px;
+    font-size: 4.4rem;
+    color: rgb(255,78,78);
+    padding-right: 30px;
+
+  }
+  .desktopsidebar{
+   display: none;
+  }
+  .contenarea{
+    background-color: rgb(250,250,250);
+  }
+  .header{
+    grid-area: header;
+    background-color: rgb(250,250,250);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    position: fixed;
+    width: 100%;
+
+  }
+  .productcard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+  }
+  .sidebarlogo{
+    margin: 30px 15px;
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Abril Fatface', cursive;
+  }
+  .sidebar ul{
+    margin-left: -45px;
+    margin-bottom: 25px;
+  
+  }
+  .sidebar ul li{
+    list-style: none;
+    text-decoration: none;
+    margin: 10px 5px;
+    text-align: center;
+    padding: 15px 5px;
+    cursor: pointer;
+  }
+  .sidebar ul li a{
+    margin: 10px 5px;
+    text-align: center;
+    font-size: 2rem;
+    color: #c0c0c0;
+  }
+  .card {
+    background-color: rgb(255,255,255);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 18px 31px 0 rgb(194 193 191 / 99%);
+    text-align: center;
+}
+.Headingtxt{
+  display: grid;
+  grid-template-columns: 1fr;
+
+}
+.headingh1 {
+  font-size: 4rem;
+  font-weight: 500;
+  font-family: 'Abril Fatface', cursive;
+  padding: 25px 20px 10px 20px;
+  margin-top: 35px;
+}
+.cardimage {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 25px;
+  text-align: center;
+  justify-content: center;
+}
+.headingtxt-right{
+  display: none;
+}
+.mobilebuttomtext{
+  justify-content: center;
+
+}
+.mobilebuttomtext p{
+  font-size: 2rem;
+    color: rgb(145, 143, 143);
+    padding: 10px 10px 10px 10px;
+    background-color: rgb(250,250,250);
+    margin: 10px;
+}
+.titlehr{
+  border-top: 3px solid rgb(255,78,78);
+  width: 10rem;
+  float: left;
+  margin-left: 20px;
+
+}
 }
